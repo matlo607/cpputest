@@ -1,23 +1,29 @@
-add_library(CppUTest
-        CommandLineArguments.cpp
-        MemoryLeakWarningPlugin.cpp
-        TestHarness_c.cpp
-        TestRegistry.cpp
-        CommandLineTestRunner.cpp
-        SimpleString.cpp
-        TestMemoryAllocator.cpp
-        TestResult.cpp
-        JUnitTestOutput.cpp
-        TeamCityTestOutput.cpp
-        TestFailure.cpp
-        TestOutput.cpp
-        MemoryLeakDetector.cpp
-        TestFilter.cpp
-        TestPlugin.cpp
-        TestTestingFixture.cpp
-        SimpleMutex.cpp
-        Utest.cpp
-)
+set(CppUTest_SOURCES
+    CommandLineArguments.cpp
+    MemoryLeakWarningPlugin.cpp
+    TestHarness_c.cpp
+    TestRegistry.cpp
+    CommandLineTestRunner.cpp
+    SimpleString.cpp
+    TestMemoryAllocator.cpp
+    TestResult.cpp
+    JUnitTestOutput.cpp
+    TeamCityTestOutput.cpp
+    TestFailure.cpp
+    TestOutput.cpp
+    MemoryLeakDetector.cpp
+    TestFilter.cpp
+    TestPlugin.cpp
+    TestTestingFixture.cpp
+    SimpleMutex.cpp
+    Utest.cpp
+    )
+
+if (SHARED)
+    add_library(CppUTest SHARED ${CppUTest_SOURCES})
+else()
+    add_library(CppUTest STATIC ${CppUTest_SOURCES})
+endif()
 
 #[[Set CPP_PLATFORM in a parent CMakeLists.txt if reusing one of the provided platforms, else supply the missing definitions]]
 if (CPP_PLATFORM)
@@ -69,4 +75,5 @@ install(FILES ${CppUTest_headers} DESTINATION include/CppUTest)
 install(TARGETS CppUTest
     EXPORT CppUTestTargets
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})

@@ -38,10 +38,15 @@ set(CppUTestExt_headers
         ${CppUTestRootDirectory}/include/CppUTestExt/MockSupport.h
 )
 
-add_library(CppUTestExt STATIC ${CppUTestExt_src} ${CppUTestExt_headers})
+if (SHARED)
+    add_library(CppUTestExt SHARED ${CppUTestExt_src} ${CppUTestExt_headers})
+else()
+    add_library(CppUTestExt STATIC ${CppUTestExt_src} ${CppUTestExt_headers})
+endif()
 target_link_libraries(CppUTestExt ${CPPUNIT_EXTERNAL_LIBRARIES})
 install(FILES ${CppUTestExt_headers} DESTINATION include/CppUTestExt)
 install(TARGETS CppUTestExt
     EXPORT CppUTestTargets
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})

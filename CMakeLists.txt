@@ -48,6 +48,10 @@ endif()
 option(STD_C "Use the standard C library" ON)
 option(STD_CPP "Use the standard C++ library" ON)
 option(CPPUTEST_FLAGS "Use the CFLAGS/CXXFLAGS/LDFLAGS set by CppUTest" ON)
+option(SHARED "Compile as shared libraries" OFF)
+if (WIN32 AND SHARED)
+    add_definitions(-DCPPUTEST_API=__declspec\(dllexport\))
+endif()
 option(MEMORY_LEAK_DETECTION "Enable memory leak detection" ON)
 option(EXTENSIONS "Use the CppUTest extenstion library" ON)
 option(LONGLONG "Support long long" OFF)
@@ -184,6 +188,7 @@ Features configured in CppUTest:
     Using Standard C library:           ${STD_C}
     Using Standard C++ library:         ${STD_CPP}
     Using C++11 library:                ${C++11}
+    Compiling as shared:                ${SHARED}
 
     Generating map file:                ${MAP_FILE}
     Compiling with coverage:            ${COVERAGE}
