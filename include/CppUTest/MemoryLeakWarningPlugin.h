@@ -39,7 +39,7 @@ extern void crash_on_allocation_number(unsigned alloc_number);
 class MemoryLeakDetector;
 class MemoryLeakFailure;
 
-class MemoryLeakWarningPlugin: public TestPlugin
+class CPPUTEST_API MemoryLeakWarningPlugin: public TestPlugin
 {
 public:
     MemoryLeakWarningPlugin(const SimpleString& name, MemoryLeakDetector* localDetector = NULLPTR);

@@ -39,7 +39,7 @@ class MockSupport;
 /* This allows access to "the global" mocking support for easier testing */
 MockSupport& mock(const SimpleString& mockName = "", MockFailureReporter* failureReporterForThisCall = NULLPTR);
 
-class MockSupport
+class CPPUTEST_API MockSupport
 {
 public:
     MockSupport(const SimpleString& mockName = "");

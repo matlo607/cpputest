@@ -288,5 +288,14 @@ typedef struct cpputest_ulonglong cpputest_ulonglong;
  #pragma clang diagnostic pop
 #endif
 
+#if defined(_MSC_VER)
+#if defined(CPPUTEST_API_EXPORTS)
+#define CPPUTEST_API __declspec(dllexport)
+#else
+#define CPPUTEST_API __declspec(dllimport)
+#endif
+#else
+#define CPPUTEST_API
+#endif
 
 #endif

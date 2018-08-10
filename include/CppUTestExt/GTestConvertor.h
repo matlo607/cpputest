@@ -58,7 +58,7 @@ namespace testing {
     class Test;
 }
 
-class GTestShell : public UtestShell
+class CPPUTEST_API GTestShell : public UtestShell
 {
     ::testing::TestInfo* testinfo_;
     GTestShell* next_;
@@ -118,7 +118,7 @@ public:
 
 /* Store some of the flags as we'll need to reset them each test to avoid leaking memory */
 
-class GTestFlagsThatAllocateMemory
+class CPPUTEST_API GTestFlagsThatAllocateMemory
 {
 public:
     void storeValuesOfGTestFLags()
@@ -170,7 +170,7 @@ private:
     #endif
 };
 
-class GTestConvertor
+class CPPUTEST_API GTestConvertor
 {
 public:
     GTestConvertor(bool shouldSimulateFailureAtCreationToAllocateThreadLocalData = true);
@@ -190,14 +190,14 @@ private:
     GTestFlagsThatAllocateMemory flags_;
 };
 
-class GTestDummyResultReporter : public ::testing::ScopedFakeTestPartResultReporter
+class CPPUTEST_API GTestDummyResultReporter : public ::testing::ScopedFakeTestPartResultReporter
 {
 public:
     GTestDummyResultReporter () : ::testing::ScopedFakeTestPartResultReporter(INTERCEPT_ALL_THREADS, NULL) {}
     virtual void ReportTestPartResult(const ::testing::TestPartResult& /*result*/) {}
 };
 
-class GMockTestTerminator : public TestTerminator
+class CPPUTEST_API GMockTestTerminator : public TestTerminator
 {
 public:
     GMockTestTerminator(const ::testing::TestPartResult& result) : result_(result)
@@ -235,7 +235,7 @@ private:
 };
 
 
-class GTestResultReporter : public ::testing::ScopedFakeTestPartResultReporter
+class CPPUTEST_API GTestResultReporter : public ::testing::ScopedFakeTestPartResultReporter
 {
 public:
     GTestResultReporter () : ::testing::ScopedFakeTestPartResultReporter(INTERCEPT_ALL_THREADS, NULL) {}
@@ -253,7 +253,7 @@ inline GTestShell::GTestShell(::testing::TestInfo* testinfo, GTestShell* next, G
     setTestName(testinfo->name());
 }
 
-class GTestUTest: public Utest {
+class CPPUTEST_API GTestUTest: public Utest {
 public:
     GTestUTest(::testing::TestInfo* testinfo, GTestFlagsThatAllocateMemory* flags) : testinfo_(testinfo), test_(NULL), flags_(flags)
     {

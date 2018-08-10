@@ -30,7 +30,7 @@
 
 #include "CppUTest/PlatformSpecificFunctions.h"
 
-class SimpleMutex
+class CPPUTEST_API SimpleMutex
 {
 public:
     SimpleMutex(void);
@@ -42,7 +42,7 @@ private:
 };
 
 
-class ScopedMutexLock
+class CPPUTEST_API ScopedMutexLock
 {
 public:
     ScopedMutexLock(SimpleMutex *);

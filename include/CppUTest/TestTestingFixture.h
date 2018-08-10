@@ -31,7 +31,7 @@
 #include "TestRegistry.h"
 #include "TestOutput.h"
 
-class TestTestingFixture
+class CPPUTEST_API TestTestingFixture
 {
 public:
 
@@ -139,7 +139,7 @@ public:
     TestResult * result_;
 };
 
-class SetBooleanOnDestructorCall
+class CPPUTEST_API SetBooleanOnDestructorCall
 {
     bool& booleanToSet_;
 public:

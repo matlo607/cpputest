@@ -31,7 +31,7 @@
 class MockCheckedExpectedCall;
 class MockNamedValue;
 
-class MockExpectedCallsList
+class CPPUTEST_API MockExpectedCallsList
 {
 
 public:

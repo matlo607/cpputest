@@ -34,7 +34,7 @@
 struct JUnitTestOutputImpl;
 struct JUnitTestCaseResultNode;
 
-class JUnitTestOutput: public TestOutput
+class CPPUTEST_API JUnitTestOutput: public TestOutput
 {
 public:
     JUnitTestOutput();

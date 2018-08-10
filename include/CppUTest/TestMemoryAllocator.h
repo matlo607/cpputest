@@ -31,22 +31,22 @@
 struct MemoryLeakNode;
 class TestMemoryAllocator;
 
-extern void setCurrentNewAllocator(TestMemoryAllocator* allocator);
-extern TestMemoryAllocator* getCurrentNewAllocator();
-extern void setCurrentNewAllocatorToDefault();
-extern TestMemoryAllocator* defaultNewAllocator();
+extern CPPUTEST_API void setCurrentNewAllocator(TestMemoryAllocator* allocator);
+extern CPPUTEST_API TestMemoryAllocator* getCurrentNewAllocator();
+extern CPPUTEST_API void setCurrentNewAllocatorToDefault();
+extern CPPUTEST_API TestMemoryAllocator* defaultNewAllocator();
 
-extern void setCurrentNewArrayAllocator(TestMemoryAllocator* allocator);
-extern TestMemoryAllocator* getCurrentNewArrayAllocator();
-extern void setCurrentNewArrayAllocatorToDefault();
-extern TestMemoryAllocator* defaultNewArrayAllocator();
+extern CPPUTEST_API void setCurrentNewArrayAllocator(TestMemoryAllocator* allocator);
+extern CPPUTEST_API TestMemoryAllocator* getCurrentNewArrayAllocator();
+extern CPPUTEST_API void setCurrentNewArrayAllocatorToDefault();
+extern CPPUTEST_API TestMemoryAllocator* defaultNewArrayAllocator();
 
-extern void setCurrentMallocAllocator(TestMemoryAllocator* allocator);
-extern TestMemoryAllocator* getCurrentMallocAllocator();
-extern void setCurrentMallocAllocatorToDefault();
-extern TestMemoryAllocator* defaultMallocAllocator();
+extern CPPUTEST_API void setCurrentMallocAllocator(TestMemoryAllocator* allocator);
+extern CPPUTEST_API TestMemoryAllocator* getCurrentMallocAllocator();
+extern CPPUTEST_API void setCurrentMallocAllocatorToDefault();
+extern CPPUTEST_API TestMemoryAllocator* defaultMallocAllocator();
 
-class TestMemoryAllocator
+class CPPUTEST_API TestMemoryAllocator
 {
 public:
     TestMemoryAllocator(const char* name_str = "generic", const char* alloc_name_str = "alloc", const char* free_name_str = "free");
@@ -74,7 +74,7 @@ protected:
     bool hasBeenDestroyed_;
 };
 
-class CrashOnAllocationAllocator : public TestMemoryAllocator
+class CPPUTEST_API CrashOnAllocationAllocator : public TestMemoryAllocator
 {
     unsigned allocationToCrashOn_;
 public:
@@ -86,7 +86,7 @@ public:
 };
 
 
-class NullUnknownAllocator: public TestMemoryAllocator
+class CPPUTEST_API NullUnknownAllocator: public TestMemoryAllocator
 {
 public:
     NullUnknownAllocator();
@@ -96,9 +96,9 @@ public:
     static TestMemoryAllocator* defaultAllocator();
 };
 
-class LocationToFailAllocNode;
+class CPPUTEST_API LocationToFailAllocNode;
 
-class FailableMemoryAllocator: public TestMemoryAllocator
+class CPPUTEST_API FailableMemoryAllocator: public TestMemoryAllocator
 {
 public:
     FailableMemoryAllocator(const char* name_str = "failable alloc", const char* alloc_name_str = "alloc", const char* free_name_str = "free");

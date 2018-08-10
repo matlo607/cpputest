@@ -35,7 +35,9 @@
  * This is needed when comparing values of non-native type.
  */
 
-class MockNamedValueComparator
+#include "CppUTest/SimpleString.h"
+
+class CPPUTEST_API MockNamedValueComparator
 {
 public:
     MockNamedValueComparator() {}
@@ -50,7 +52,7 @@ public:
  * This is needed when copying values of non-native type.
  */
 
-class MockNamedValueCopier
+class CPPUTEST_API MockNamedValueCopier
 {
 public:
     MockNamedValueCopier() {}
@@ -60,7 +62,7 @@ public:
 };
 
 
-class MockFunctionComparator : public MockNamedValueComparator
+class CPPUTEST_API MockFunctionComparator : public MockNamedValueComparator
 {
 public:
     typedef bool (*isEqualFunction)(const void*, const void*);
@@ -76,7 +78,7 @@ private:
     valueToStringFunction valueToString_;
 };
 
-class MockFunctionCopier : public MockNamedValueCopier
+class CPPUTEST_API MockFunctionCopier : public MockNamedValueCopier
 {
 public:
     typedef void (*copyFunction)(void*, const void*);
@@ -97,7 +99,7 @@ private:
  */
 
 class MockNamedValueComparatorsAndCopiersRepository;
-class MockNamedValue
+class CPPUTEST_API MockNamedValue
 {
 public:
     MockNamedValue(const SimpleString& name);
@@ -184,7 +186,7 @@ private:
     static MockNamedValueComparatorsAndCopiersRepository* defaultRepository_;
 };
 
-class MockNamedValueListNode
+class CPPUTEST_API MockNamedValueListNode
 {
 public:
     MockNamedValueListNode(MockNamedValue* newValue);
@@ -202,7 +204,7 @@ private:
     MockNamedValueListNode* next_;
 };
 
-class MockNamedValueList
+class CPPUTEST_API MockNamedValueList
 {
 public:
     MockNamedValueList();
@@ -224,7 +226,7 @@ private:
  */
 
 struct MockNamedValueComparatorsAndCopiersRepositoryNode;
-class MockNamedValueComparatorsAndCopiersRepository
+class CPPUTEST_API MockNamedValueComparatorsAndCopiersRepository
 {
     MockNamedValueComparatorsAndCopiersRepositoryNode* head_;
 public:

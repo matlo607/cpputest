@@ -31,7 +31,7 @@
 #include "CppUTestExt/MockActualCall.h"
 #include "CppUTestExt/MockExpectedCallsList.h"
 
-class MockCheckedActualCall : public MockActualCall
+class CPPUTEST_API MockCheckedActualCall : public MockActualCall
 {
 public:
     MockCheckedActualCall(unsigned int callOrder, MockFailureReporter* reporter, const MockExpectedCallsList& expectations);
@@ -152,7 +152,7 @@ private:
     virtual void cleanUpOutputParameterList();
 };
 
-class MockActualCallTrace : public MockActualCall
+class CPPUTEST_API MockActualCallTrace : public MockActualCall
 {
 public:
     MockActualCallTrace();
@@ -228,7 +228,7 @@ private:
     void addParameterName(const SimpleString& name);
 };
 
-class MockIgnoredActualCall: public MockActualCall
+class CPPUTEST_API MockIgnoredActualCall: public MockActualCall
 {
 public:
     virtual MockActualCall& withName(const SimpleString&) _override { return *this;}

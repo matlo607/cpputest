@@ -4,7 +4,7 @@
 #include "TestOutput.h"
 #include "SimpleString.h"
 
-class TeamCityTestOutput: public ConsoleTestOutput
+class CPPUTEST_API TeamCityTestOutput: public ConsoleTestOutput
 {
 public:
     TeamCityTestOutput(void);

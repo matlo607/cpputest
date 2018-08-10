@@ -31,7 +31,7 @@
 class TestOutput;
 class UtestShell;
 
-class MemoryReportFormatter
+class CPPUTEST_API MemoryReportFormatter
 {
 public:
     virtual ~MemoryReportFormatter(){}
@@ -46,7 +46,7 @@ public:
     virtual void report_free_memory(TestResult* result, TestMemoryAllocator* allocator, char* memory, const char* file, int line)=0;
 };
 
-class NormalMemoryReportFormatter : public MemoryReportFormatter
+class CPPUTEST_API NormalMemoryReportFormatter : public MemoryReportFormatter
 {
 public:
     NormalMemoryReportFormatter();

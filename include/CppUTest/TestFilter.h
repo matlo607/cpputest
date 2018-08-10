@@ -30,7 +30,7 @@
 
 #include "SimpleString.h"
 
-class TestFilter
+class CPPUTEST_API TestFilter
 {
 public:
 
@@ -57,7 +57,7 @@ private:
     TestFilter* next_;
 };
 
-SimpleString StringFrom(const TestFilter& filter);
+CPPUTEST_API SimpleString StringFrom(const TestFilter& filter);
 
 #endif
 

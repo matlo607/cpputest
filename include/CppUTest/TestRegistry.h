@@ -40,7 +40,7 @@ class UtestShell;
 class TestResult;
 class TestPlugin;
 
-class TestRegistry
+class CPPUTEST_API TestRegistry
 {
 public:
     TestRegistry();

@@ -31,7 +31,7 @@
 class UtestShell;
 class TestResult;
 
-class TestPlugin
+class CPPUTEST_API TestPlugin
 {
 public:
 
@@ -84,9 +84,9 @@ private:
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-extern void CppUTestStore(void **location);
+extern CPPUTEST_API void CppUTestStore(void **location);
 
-class SetPointerPlugin: public TestPlugin
+class CPPUTEST_API SetPointerPlugin: public TestPlugin
 {
 public:
     SetPointerPlugin(const SimpleString& name);
@@ -102,7 +102,7 @@ public:
 
 ///////////// Null Plugin
 
-class NullTestPlugin: public TestPlugin
+class CPPUTEST_API NullTestPlugin: public TestPlugin
 {
 public:
 

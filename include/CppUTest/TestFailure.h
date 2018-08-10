@@ -41,7 +41,7 @@
 class UtestShell;
 class TestOutput;
 
-class TestFailure
+class CPPUTEST_API TestFailure
 {
 
 public:
@@ -81,108 +81,108 @@ protected:
     int testLineNumber_;
     SimpleString message_;
 
-    TestFailure& operator=(const TestFailure&);
+    TestFailure& operator=(const TestFailure&) = delete;
 
 };
 
-class EqualsFailure: public TestFailure
+class CPPUTEST_API EqualsFailure: public TestFailure
 {
 public:
     EqualsFailure(UtestShell*, const char* fileName, int lineNumber, const char* expected, const char* actual, const SimpleString& text);
     EqualsFailure(UtestShell*, const char* fileName, int lineNumber, const SimpleString& expected, const SimpleString& actual, const SimpleString& text);
 };
 
-class DoublesEqualFailure: public TestFailure
+class CPPUTEST_API DoublesEqualFailure: public TestFailure
 {
 public:
     DoublesEqualFailure(UtestShell*, const char* fileName, int lineNumber, double expected, double actual, double threshold, const SimpleString& text);
 };
 
-class CheckEqualFailure : public TestFailure
+class CPPUTEST_API CheckEqualFailure : public TestFailure
 {
 public:
     CheckEqualFailure(UtestShell* test, const char* fileName, int lineNumber, const SimpleString& expected, const SimpleString& actual, const SimpleString& text);
 };
 
-class ComparisonFailure : public TestFailure
+class CPPUTEST_API ComparisonFailure : public TestFailure
 {
 public:
     ComparisonFailure(UtestShell* test, const char *fileName, int lineNumber, const SimpleString& checkString, const SimpleString& comparisonString, const SimpleString& text);
 };
 
-class ContainsFailure: public TestFailure
+class CPPUTEST_API ContainsFailure: public TestFailure
 {
 public:
     ContainsFailure(UtestShell*, const char* fileName, int lineNumber, const SimpleString& expected, const SimpleString& actual, const SimpleString& text);
 };
 
-class CheckFailure : public TestFailure
+class CPPUTEST_API CheckFailure : public TestFailure
 {
 public:
     CheckFailure(UtestShell* test, const char* fileName, int lineNumber, const SimpleString& checkString, const SimpleString& conditionString, const SimpleString& textString = "");
 };
 
-class FailFailure : public TestFailure
+class CPPUTEST_API FailFailure : public TestFailure
 {
 public:
     FailFailure(UtestShell* test, const char* fileName, int lineNumber, const SimpleString& message);
 };
 
-class LongsEqualFailure : public TestFailure
+class CPPUTEST_API LongsEqualFailure : public TestFailure
 {
 public:
     LongsEqualFailure(UtestShell* test, const char* fileName, int lineNumber, long expected, long actual, const SimpleString& text);
 };
 
-class UnsignedLongsEqualFailure : public TestFailure
+class CPPUTEST_API UnsignedLongsEqualFailure : public TestFailure
 {
 public:
     UnsignedLongsEqualFailure(UtestShell* test, const char* fileName, int lineNumber, unsigned long expected, unsigned long actual, const SimpleString& text);
 };
 
-class LongLongsEqualFailure : public TestFailure
+class CPPUTEST_API LongLongsEqualFailure : public TestFailure
 {
 public:
     LongLongsEqualFailure(UtestShell* test, const char* fileName, int lineNumber, cpputest_longlong expected, cpputest_longlong actual, const SimpleString& text);
 };
 
-class UnsignedLongLongsEqualFailure : public TestFailure
+class CPPUTEST_API UnsignedLongLongsEqualFailure : public TestFailure
 {
 public:
     UnsignedLongLongsEqualFailure(UtestShell* test, const char* fileName, int lineNumber, cpputest_ulonglong expected, cpputest_ulonglong actual, const SimpleString& text);
 };
 
-class SignedBytesEqualFailure : public TestFailure
+class CPPUTEST_API SignedBytesEqualFailure : public TestFailure
 {
 public:
     SignedBytesEqualFailure (UtestShell* test, const char* fileName, int lineNumber, signed char expected, signed char actual, const SimpleString& text);
 };
 
-class StringEqualFailure : public TestFailure
+class CPPUTEST_API StringEqualFailure : public TestFailure
 {
 public:
     StringEqualFailure(UtestShell* test, const char* fileName, int lineNumber, const char* expected, const char* actual, const SimpleString& text);
 };
 
-class StringEqualNoCaseFailure : public TestFailure
+class CPPUTEST_API StringEqualNoCaseFailure : public TestFailure
 {
 public:
     StringEqualNoCaseFailure(UtestShell* test, const char* fileName, int lineNumber, const char* expected, const char* actual, const SimpleString& text);
 };
 
-class BinaryEqualFailure : public TestFailure
+class CPPUTEST_API BinaryEqualFailure : public TestFailure
 {
 public:
 	BinaryEqualFailure(UtestShell* test, const char* fileName, int lineNumber, const unsigned char* expected, const unsigned char* actual, size_t size, const SimpleString& text);
 };
 
-class BitsEqualFailure : public TestFailure
+class CPPUTEST_API BitsEqualFailure : public TestFailure
 {
 public:
 	BitsEqualFailure(UtestShell* test, const char* fileName, int lineNumber, unsigned long expected, unsigned long actual, unsigned long mask, size_t byteCount, const SimpleString& text);
 };
 
-class FeatureUnsupportedFailure : public TestFailure
+class CPPUTEST_API FeatureUnsupportedFailure : public TestFailure
 {
 public:
     FeatureUnsupportedFailure(UtestShell* test, const char* fileName, int lineNumber, const SimpleString& featureName, const SimpleString& text);

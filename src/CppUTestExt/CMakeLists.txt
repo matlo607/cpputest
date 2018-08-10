@@ -43,7 +43,7 @@ if (SHARED)
 else()
     add_library(CppUTestExt STATIC ${CppUTestExt_src} ${CppUTestExt_headers})
 endif()
-target_link_libraries(CppUTestExt ${CPPUNIT_EXTERNAL_LIBRARIES})
+target_link_libraries(CppUTestExt ${CPPUNIT_EXTERNAL_LIBRARIES} CppUTest)
 install(FILES ${CppUTestExt_headers} DESTINATION include/CppUTestExt)
 install(TARGETS CppUTestExt
     EXPORT CppUTestTargets

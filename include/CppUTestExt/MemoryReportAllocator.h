@@ -32,7 +32,7 @@
 
 class MemoryReportFormatter;
 
-class MemoryReportAllocator : public TestMemoryAllocator
+class CPPUTEST_API MemoryReportAllocator : public TestMemoryAllocator
 {
 protected:
     TestResult* result_;

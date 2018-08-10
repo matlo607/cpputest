@@ -39,7 +39,7 @@ enum MemLeakPeriod
 class TestMemoryAllocator;
 class SimpleMutex;
 
-class MemoryLeakFailure
+class CPPUTEST_API MemoryLeakFailure
 {
 public:
     virtual ~MemoryLeakFailure()
@@ -49,7 +49,7 @@ public:
     virtual void fail(char* fail_string)=0;
 };
 
-struct SimpleStringBuffer
+struct CPPUTEST_API SimpleStringBuffer
 {
     enum
     {
@@ -74,7 +74,7 @@ private:
 
 struct MemoryLeakDetectorNode;
 
-class MemoryLeakOutputStringBuffer
+class CPPUTEST_API MemoryLeakOutputStringBuffer
 {
 public:
     MemoryLeakOutputStringBuffer();
@@ -114,7 +114,7 @@ private:
     SimpleStringBuffer outputBuffer_;
 };
 
-struct MemoryLeakDetectorNode
+struct CPPUTEST_API MemoryLeakDetectorNode
 {
     MemoryLeakDetectorNode() :
         size_(0), number_(0), memory_(NULLPTR), file_(NULLPTR), line_(0), allocator_(NULLPTR), period_(mem_leak_period_enabled), next_(NULLPTR)
@@ -136,7 +136,7 @@ private:
     MemoryLeakDetectorNode* next_;
 };
 
-struct MemoryLeakDetectorList
+struct CPPUTEST_API MemoryLeakDetectorList
 {
     MemoryLeakDetectorList() :
         head_(NULLPTR)
@@ -161,7 +161,7 @@ private:
     MemoryLeakDetectorNode* head_;
 };
 
-struct MemoryLeakDetectorTable
+struct CPPUTEST_API MemoryLeakDetectorTable
 {
     void clearAllAccounting(MemLeakPeriod period);
 
@@ -185,7 +185,7 @@ private:
     MemoryLeakDetectorList table_[hash_prime];
 };
 
-class MemoryLeakDetector
+class CPPUTEST_API MemoryLeakDetector
 {
 public:
     MemoryLeakDetector(MemoryLeakFailure* reporter);

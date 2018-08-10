@@ -43,10 +43,10 @@
 class SimpleStringCollection;
 class TestMemoryAllocator;
 
-class SimpleString
+class CPPUTEST_API SimpleString
 {
-    friend bool operator==(const SimpleString& left, const SimpleString& right);
-    friend bool operator!=(const SimpleString& left, const SimpleString& right);
+    friend CPPUTEST_API bool operator==(const SimpleString& left, const SimpleString& right);
+    friend CPPUTEST_API bool operator!=(const SimpleString& left, const SimpleString& right);
 
 public:
     SimpleString(const char *value = "");
@@ -114,7 +114,7 @@ private:
     static bool isUpper(char ch);
 };
 
-class SimpleStringCollection
+class CPPUTEST_API SimpleStringCollection
 {
 public:
     SimpleStringCollection();
@@ -134,59 +134,59 @@ private:
     SimpleStringCollection(SimpleStringCollection&);
 };
 
-SimpleString StringFrom(bool value);
-SimpleString StringFrom(const void* value);
-SimpleString StringFrom(void (*value)());
-SimpleString StringFrom(char value);
-SimpleString StringFrom(const char *value);
-SimpleString StringFromOrNull(const char * value);
-SimpleString StringFrom(int value);
-SimpleString StringFrom(unsigned int value);
-SimpleString StringFrom(long value);
-SimpleString StringFrom(unsigned long value);
-SimpleString StringFrom(cpputest_longlong value);
-SimpleString StringFrom(cpputest_ulonglong value);
-SimpleString HexStringFrom(unsigned int value);
-SimpleString HexStringFrom(int value);
-SimpleString HexStringFrom(signed char value);
-SimpleString HexStringFrom(long value);
-SimpleString HexStringFrom(unsigned long value);
-SimpleString HexStringFrom(cpputest_longlong value);
-SimpleString HexStringFrom(cpputest_ulonglong value);
-SimpleString HexStringFrom(const void* value);
-SimpleString HexStringFrom(void (*value)());
-SimpleString StringFrom(double value, int precision = 6);
-SimpleString StringFrom(const SimpleString& other);
-SimpleString StringFromFormat(const char* format, ...) __check_format__(printf, 1, 2);
-SimpleString VStringFromFormat(const char* format, va_list args);
-SimpleString StringFromBinary(const unsigned char* value, size_t size);
-SimpleString StringFromBinaryOrNull(const unsigned char* value, size_t size);
-SimpleString StringFromBinaryWithSize(const unsigned char* value, size_t size);
-SimpleString StringFromBinaryWithSizeOrNull(const unsigned char* value, size_t size);
-SimpleString StringFromMaskedBits(unsigned long value, unsigned long mask, size_t byteCount);
-SimpleString StringFromOrdinalNumber(unsigned int number);
-SimpleString BracketsFormattedHexStringFrom(int value);
-SimpleString BracketsFormattedHexStringFrom(unsigned int value);
-SimpleString BracketsFormattedHexStringFrom(long value);
-SimpleString BracketsFormattedHexStringFrom(unsigned long value);
-SimpleString BracketsFormattedHexStringFrom(cpputest_longlong value);
-SimpleString BracketsFormattedHexStringFrom(cpputest_ulonglong value);
-SimpleString BracketsFormattedHexStringFrom(signed char value);
-SimpleString BracketsFormattedHexString(SimpleString hexString);
+CPPUTEST_API SimpleString StringFrom(bool value);
+CPPUTEST_API SimpleString StringFrom(const void* value);
+CPPUTEST_API SimpleString StringFrom(void (*value)());
+CPPUTEST_API SimpleString StringFrom(char value);
+CPPUTEST_API SimpleString StringFrom(const char *value);
+CPPUTEST_API SimpleString StringFromOrNull(const char * value);
+CPPUTEST_API SimpleString StringFrom(int value);
+CPPUTEST_API SimpleString StringFrom(unsigned int value);
+CPPUTEST_API SimpleString StringFrom(long value);
+CPPUTEST_API SimpleString StringFrom(unsigned long value);
+CPPUTEST_API SimpleString StringFrom(cpputest_longlong value);
+CPPUTEST_API SimpleString StringFrom(cpputest_ulonglong value);
+CPPUTEST_API SimpleString HexStringFrom(unsigned int value);
+CPPUTEST_API SimpleString HexStringFrom(int value);
+CPPUTEST_API SimpleString HexStringFrom(signed char value);
+CPPUTEST_API SimpleString HexStringFrom(long value);
+CPPUTEST_API SimpleString HexStringFrom(unsigned long value);
+CPPUTEST_API SimpleString HexStringFrom(cpputest_longlong value);
+CPPUTEST_API SimpleString HexStringFrom(cpputest_ulonglong value);
+CPPUTEST_API SimpleString HexStringFrom(const void* value);
+CPPUTEST_API SimpleString HexStringFrom(void (*value)());
+CPPUTEST_API SimpleString StringFrom(double value, int precision = 6);
+CPPUTEST_API SimpleString StringFrom(const SimpleString& other);
+CPPUTEST_API SimpleString StringFromFormat(const char* format, ...) __check_format__(printf, 1, 2);
+CPPUTEST_API SimpleString VStringFromFormat(const char* format, va_list args);
+CPPUTEST_API SimpleString StringFromBinary(const unsigned char* value, size_t size);
+CPPUTEST_API SimpleString StringFromBinaryOrNull(const unsigned char* value, size_t size);
+CPPUTEST_API SimpleString StringFromBinaryWithSize(const unsigned char* value, size_t size);
+CPPUTEST_API SimpleString StringFromBinaryWithSizeOrNull(const unsigned char* value, size_t size);
+CPPUTEST_API SimpleString StringFromMaskedBits(unsigned long value, unsigned long mask, size_t byteCount);
+CPPUTEST_API SimpleString StringFromOrdinalNumber(unsigned int number);
+CPPUTEST_API SimpleString BracketsFormattedHexStringFrom(int value);
+CPPUTEST_API SimpleString BracketsFormattedHexStringFrom(unsigned int value);
+CPPUTEST_API SimpleString BracketsFormattedHexStringFrom(long value);
+CPPUTEST_API SimpleString BracketsFormattedHexStringFrom(unsigned long value);
+CPPUTEST_API SimpleString BracketsFormattedHexStringFrom(cpputest_longlong value);
+CPPUTEST_API SimpleString BracketsFormattedHexStringFrom(cpputest_ulonglong value);
+CPPUTEST_API SimpleString BracketsFormattedHexStringFrom(signed char value);
+CPPUTEST_API SimpleString BracketsFormattedHexString(SimpleString hexString);
 
 /*
  * ARM compiler has only partial support for C++11.
  * Specifically std::nullptr_t is not officially supported
  */
 #if __cplusplus > 199711L && !defined __arm__
-SimpleString StringFrom(const std::nullptr_t value);
+CPPUTEST_API SimpleString StringFrom(const std::nullptr_t value);
 #endif
 
 #if CPPUTEST_USE_STD_CPP_LIB
 
 #include <string>
 
-SimpleString StringFrom(const std::string& other);
+CPPUTEST_API SimpleString StringFrom(const std::string& other);
 
 #endif
 

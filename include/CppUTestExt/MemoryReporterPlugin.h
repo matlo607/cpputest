@@ -33,7 +33,7 @@
 
 class MemoryReportFormatter;
 
-class MemoryReporterPlugin : public TestPlugin
+class CPPUTEST_API MemoryReporterPlugin : public TestPlugin
 {
     MemoryReportFormatter* formatter_;
 

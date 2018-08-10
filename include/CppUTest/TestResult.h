@@ -38,7 +38,7 @@ class TestFailure;
 class TestOutput;
 class UtestShell;
 
-class TestResult
+class CPPUTEST_API TestResult
 {
 public:
     TestResult(TestOutput&);

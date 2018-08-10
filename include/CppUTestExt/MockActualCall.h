@@ -36,7 +36,7 @@
 class MockFailureReporter;
 class MockFailure;
 
-class MockActualCall
+class CPPUTEST_API MockActualCall
 {
 public:
     MockActualCall();

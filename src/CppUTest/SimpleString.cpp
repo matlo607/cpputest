@@ -310,7 +310,7 @@ SimpleString::~SimpleString()
     deallocStringBuffer(buffer_, __FILE__, __LINE__);
 }
 
-bool operator==(const SimpleString& left, const SimpleString& right)
+CPPUTEST_API bool operator==(const SimpleString& left, const SimpleString& right)
 {
     return 0 == SimpleString::StrCmp(left.asCharString(), right.asCharString());
 }
@@ -321,7 +321,7 @@ bool SimpleString::equalsNoCase(const SimpleString& str) const
 }
 
 
-bool operator!=(const SimpleString& left, const SimpleString& right)
+CPPUTEST_API bool operator!=(const SimpleString& left, const SimpleString& right)
 {
     return !(left == right);
 }

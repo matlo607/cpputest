@@ -31,7 +31,7 @@
 #include "CppUTestExt/MemoryReportFormatter.h"
 
 struct CodeReportingAllocationNode;
-class CodeMemoryReportFormatter : public MemoryReportFormatter
+class CPPUTEST_API CodeMemoryReportFormatter : public MemoryReportFormatter
 {
 private:
     CodeReportingAllocationNode* codeReportingList_;

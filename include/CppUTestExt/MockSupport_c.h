@@ -52,7 +52,7 @@ typedef enum {
     MOCKVALUETYPE_OBJECT
 } MockValueType_c;
 
-typedef struct SMockValue_c
+typedef struct CPPUTEST_API SMockValue_c
 {
     MockValueType_c type;
     union {
@@ -79,7 +79,7 @@ typedef struct SMockValue_c
 } MockValue_c;
 
 typedef struct SMockActualCall_c MockActualCall_c;
-struct SMockActualCall_c
+struct CPPUTEST_API SMockActualCall_c
 {
     MockActualCall_c* (*withBoolParameters)(const char* name, int value);
     MockActualCall_c* (*withIntParameters)(const char* name, int value);
@@ -126,7 +126,7 @@ struct SMockActualCall_c
 };
 
 typedef struct SMockExpectedCall_c MockExpectedCall_c;
-struct SMockExpectedCall_c
+struct CPPUTEST_API SMockExpectedCall_c
 {
     MockExpectedCall_c* (*withBoolParameters)(const char* name, int value);
     MockExpectedCall_c* (*withIntParameters)(const char* name, int value);

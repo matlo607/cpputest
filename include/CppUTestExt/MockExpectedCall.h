@@ -34,7 +34,7 @@ class MockNamedValue;
 
 extern SimpleString StringFrom(const MockNamedValue& parameter);
 
-class MockExpectedCall
+class CPPUTEST_API MockExpectedCall
 {
 public:
     MockExpectedCall();

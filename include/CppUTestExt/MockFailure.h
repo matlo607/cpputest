@@ -36,7 +36,7 @@ class MockCheckedActualCall;
 class MockNamedValue;
 class MockFailure;
 
-class MockFailureReporter
+class CPPUTEST_API MockFailureReporter
 {
 protected:
     bool crashOnFailure_;
@@ -50,7 +50,7 @@ public:
     virtual void crashOnFailure(bool shouldCrash) { crashOnFailure_ = shouldCrash; }
 };
 
-class MockFailure : public TestFailure
+class CPPUTEST_API MockFailure : public TestFailure
 {
 public:
     MockFailure(UtestShell* test);
@@ -60,61 +60,61 @@ protected:
     void addExpectationsAndCallHistoryRelatedTo(const SimpleString& function, const MockExpectedCallsList& expectations);
 };
 
-class MockExpectedCallsDidntHappenFailure : public MockFailure
+class CPPUTEST_API MockExpectedCallsDidntHappenFailure : public MockFailure
 {
 public:
     MockExpectedCallsDidntHappenFailure(UtestShell* test, const MockExpectedCallsList& expectations);
 };
 
-class MockUnexpectedCallHappenedFailure : public MockFailure
+class CPPUTEST_API MockUnexpectedCallHappenedFailure : public MockFailure
 {
 public:
     MockUnexpectedCallHappenedFailure(UtestShell* test, const SimpleString& name, const MockExpectedCallsList& expectations);
 };
 
-class MockCallOrderFailure : public MockFailure
+class CPPUTEST_API MockCallOrderFailure : public MockFailure
 {
 public:
     MockCallOrderFailure(UtestShell* test, const MockExpectedCallsList& expectations);
 };
 
-class MockUnexpectedInputParameterFailure : public MockFailure
+class CPPUTEST_API MockUnexpectedInputParameterFailure : public MockFailure
 {
 public:
     MockUnexpectedInputParameterFailure(UtestShell* test, const SimpleString& functionName, const MockNamedValue& parameter, const MockExpectedCallsList& expectations);
 };
 
-class MockUnexpectedOutputParameterFailure : public MockFailure
+class CPPUTEST_API MockUnexpectedOutputParameterFailure : public MockFailure
 {
 public:
     MockUnexpectedOutputParameterFailure(UtestShell* test, const SimpleString& functionName, const MockNamedValue& parameter, const MockExpectedCallsList& expectations);
 };
 
-class MockExpectedParameterDidntHappenFailure : public MockFailure
+class CPPUTEST_API MockExpectedParameterDidntHappenFailure : public MockFailure
 {
 public:
     MockExpectedParameterDidntHappenFailure(UtestShell* test, const SimpleString& functionName, const MockExpectedCallsList& expectations);
 };
 
-class MockNoWayToCompareCustomTypeFailure : public MockFailure
+class CPPUTEST_API MockNoWayToCompareCustomTypeFailure : public MockFailure
 {
 public:
     MockNoWayToCompareCustomTypeFailure(UtestShell* test, const SimpleString& typeName);
 };
 
-class MockNoWayToCopyCustomTypeFailure : public MockFailure
+class CPPUTEST_API MockNoWayToCopyCustomTypeFailure : public MockFailure
 {
 public:
     MockNoWayToCopyCustomTypeFailure(UtestShell* test, const SimpleString& typeName);
 };
 
-class MockUnexpectedObjectFailure : public MockFailure
+class CPPUTEST_API MockUnexpectedObjectFailure : public MockFailure
 {
 public:
     MockUnexpectedObjectFailure(UtestShell* test, const SimpleString& functionName, const void* expected, const MockExpectedCallsList& expectations);
 };
 
-class MockExpectedObjectDidntHappenFailure : public MockFailure
+class CPPUTEST_API MockExpectedObjectDidntHappenFailure : public MockFailure
 {
 public:
     MockExpectedObjectDidntHappenFailure(UtestShell* test, const SimpleString& functionName, const MockExpectedCallsList& expectations);

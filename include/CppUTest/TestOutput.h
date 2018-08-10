@@ -43,7 +43,7 @@ class UtestShell;
 class TestFailure;
 class TestResult;
 
-class TestOutput
+class CPPUTEST_API TestOutput
 {
 public:
     explicit TestOutput();
@@ -85,8 +85,8 @@ protected:
     void printFailureMessage(SimpleString reason);
     void printErrorInFileOnLineFormattedForWorkingEnvironment(SimpleString testFile, int lineNumber);
 
-    TestOutput(const TestOutput&);
-    TestOutput& operator=(const TestOutput&);
+    TestOutput(const TestOutput&) = delete;
+    TestOutput& operator=(const TestOutput&) = delete;
 
     int dotCount_;
     bool verbose_;
@@ -96,8 +96,8 @@ protected:
     static WorkingEnvironment workingEnvironment_;
 };
 
-TestOutput& operator<<(TestOutput&, const char*);
-TestOutput& operator<<(TestOutput&, long);
+CPPUTEST_API TestOutput& operator<<(TestOutput&, const char*);
+CPPUTEST_API TestOutput& operator<<(TestOutput&, long);
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -107,7 +107,7 @@ TestOutput& operator<<(TestOutput&, long);
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-class ConsoleTestOutput: public TestOutput
+class CPPUTEST_API ConsoleTestOutput: public TestOutput
 {
 public:
     explicit ConsoleTestOutput()
@@ -134,7 +134,7 @@ private:
 ///////////////////////////////////////////////////////////////////////////////
 
 
-class StringBufferTestOutput: public TestOutput
+class CPPUTEST_API StringBufferTestOutput: public TestOutput
 {
 public:
     explicit StringBufferTestOutput()
@@ -167,7 +167,7 @@ private:
 
 };
 
-class CompositeTestOutput : public TestOutput
+class CPPUTEST_API CompositeTestOutput : public TestOutput
 {
 public:
     virtual void setOutputOne(TestOutput* output);
@@ -196,8 +196,8 @@ public:
     virtual void flush();
 
 protected:
-    CompositeTestOutput(const TestOutput&);
-    CompositeTestOutput& operator=(const TestOutput&);
+    CompositeTestOutput(const TestOutput&) = delete;
+    CompositeTestOutput& operator=(const TestOutput&) = delete;
 
 private:
     TestOutput* outputOne_;

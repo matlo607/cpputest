@@ -39,13 +39,13 @@ class TestFailure;
 class TestFilter;
 class TestTerminator;
 
-extern bool doubles_equal(double d1, double d2, double threshold);
+extern CPPUTEST_API bool doubles_equal(double d1, double d2, double threshold);
 
 //////////////////// Utest
 
 class UtestShell;
 
-class Utest
+class CPPUTEST_API Utest
 {
 public:
     Utest();
@@ -59,21 +59,21 @@ public:
 
 //////////////////// TestTerminator
 
-class TestTerminator
+class CPPUTEST_API TestTerminator
 {
 public:
     virtual void exitCurrentTest() const=0;
     virtual ~TestTerminator();
 };
 
-class NormalTestTerminator : public TestTerminator
+class CPPUTEST_API NormalTestTerminator : public TestTerminator
 {
 public:
     virtual void exitCurrentTest() const _override;
     virtual ~NormalTestTerminator() _destructor_override;
 };
 
-class TestTerminatorWithoutExceptions  : public TestTerminator
+class CPPUTEST_API TestTerminatorWithoutExceptions  : public TestTerminator
 {
 public:
     virtual void exitCurrentTest() const _override;
@@ -82,7 +82,7 @@ public:
 
 //////////////////// UtestShell
 
-class UtestShell
+class CPPUTEST_API UtestShell
 {
 public:
     static UtestShell *getCurrent();
@@ -182,7 +182,7 @@ private:
 
 class ExecFunctionTestShell;
 
-class ExecFunctionTest : public Utest
+class CPPUTEST_API ExecFunctionTest : public Utest
 {
 public:
     ExecFunctionTest(ExecFunctionTestShell* shell);
@@ -195,7 +195,7 @@ private:
 
 //////////////////// ExecFunctionTestShell
 
-class ExecFunctionTestShell: public UtestShell
+class CPPUTEST_API ExecFunctionTestShell: public UtestShell
 {
 public:
     void (*setup_)();
@@ -213,7 +213,7 @@ public:
 
 //////////////////// CppUTestFailedException
 
-class CppUTestFailedException
+class CPPUTEST_API CppUTestFailedException
 {
 public:
     int dummy_;
@@ -221,7 +221,7 @@ public:
 
 //////////////////// IgnoredTest
 
-class IgnoredUtestShell : public UtestShell
+class CPPUTEST_API IgnoredUtestShell : public UtestShell
 {
 public:
     IgnoredUtestShell();
@@ -244,7 +244,7 @@ private:
 
 //////////////////// TestInstaller
 
-class TestInstaller
+class CPPUTEST_API TestInstaller
 {
 public:
     explicit TestInstaller(UtestShell& shell, const char* groupName, const char* testName,

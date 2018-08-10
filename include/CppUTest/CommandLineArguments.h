@@ -34,7 +34,7 @@
 
 class TestPlugin;
 
-class CommandLineArguments
+class CPPUTEST_API CommandLineArguments
 {
 public:
     explicit CommandLineArguments(int ac, const char *const *av);

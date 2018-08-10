@@ -31,7 +31,7 @@
 #include "CppUTestExt/MockExpectedCall.h"
 #include "CppUTestExt/MockNamedValue.h"
 
-class MockCheckedExpectedCall : public MockExpectedCall
+class CPPUTEST_API MockCheckedExpectedCall : public MockExpectedCall
 {
 
 public:
@@ -145,7 +145,7 @@ private:
     unsigned int expectedCalls_;
 };
 
-class MockIgnoredExpectedCall: public MockExpectedCall
+class CPPUTEST_API MockIgnoredExpectedCall: public MockExpectedCall
 {
 public:
 

@@ -38,7 +38,7 @@ class TestRegistry;
 #define DEF_PLUGIN_MEM_LEAK "MemoryLeakPlugin"
 #define DEF_PLUGIN_SET_POINTER "SetPointerPlugin"
 
-class CommandLineTestRunner
+class CPPUTEST_API CommandLineTestRunner
 {
 public:
     static int RunAllTests(int ac, const char *const *av);
